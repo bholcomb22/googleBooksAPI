@@ -4,7 +4,6 @@ function search() {
 	let svalue = $('input')[0].value.split(' ').join('+');
 	let container = $(".results")[0];
 	container.innerHTML = "";
-	let cont = $('.container')[0];
 	console.log(svalue);
 
 	$.ajax({
@@ -13,27 +12,44 @@ function search() {
 		success: function(data){
 			for(let i = 0; i < data.items.length; i++) {
 				console.log(data);
+				let app = document.createElement('div');
+				app.className = "col-sm-12 col-md-8 ml-auto mr-auto column"
+				container.appendChild(app);
+				//title
 				let title = document.createElement('h5');
 				title.innerHTML = data.items[i].volumeInfo.title;
-				container.appendChild(title);
-				let published = document.createElement('p');
-				published.innerHTML = 'Published:' + ' ' + data.items[i].volumeInfo.publishedDate;
-				container.appendChild(published);
-				let desc = document.createElement('p');
-				desc.innerHTML = 'Description:' + ' ' + data.items[i].volumeInfo.description;
-				container.appendChild(desc);
-				// page count
-				let pages = document.createElement('p');
-				pages.innerHTML = 'Pages:' + ' ' + data.items[i].volumeInfo.pageCount;
-				container.appendChild(pages);
-				// end page count
-				let learnMore = document.createElement('button');
-				learnMore.innerHTML = '<a href="' + data.items[i].volumeInfo.infoLink + '">Learn More</a>';
-				container.appendChild(learnMore); 
+				app.appendChild(title);
+				// end title
+				// image
 				let image = document.createElement('img');
 				image.className = "resultImage";
 				image.src = data.items[i].volumeInfo.imageLinks.smallThumbnail;
-				container.appendChild(image);
+				app.appendChild(image);
+				//end image
+				// publish
+				let published = document.createElement('p');
+				published.innerHTML = 'Published:' + ' ' + data.items[i].volumeInfo.publishedDate;
+				published.className = "desc-text";
+				app.appendChild(published);
+				//end published
+				// page count
+				let pages = document.createElement('p');
+				pages.innerHTML = 'Pages:' + ' ' + data.items[i].volumeInfo.pageCount;
+				pages.className = "desc-text";
+				app.appendChild(pages);
+				// end page count
+				// description
+				let desc = document.createElement('p');
+				desc.innerHTML = 'Description:' + ' ' + data.items[i].volumeInfo.description;
+				app.appendChild(desc);
+				//end description
+				
+				//learn more
+				let learnMore = document.createElement('button');
+				learnMore.innerHTML = '<a href="' + data.items[i].volumeInfo.infoLink + '">Learn More</a>';
+				app.appendChild(learnMore); 
+				//end learn more
+				
 			}
 			
 		},
@@ -41,3 +57,4 @@ function search() {
 
 	})
 }
+

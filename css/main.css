@@ -4,3 +4,20 @@
 .resultImage {
 	margin-left: 25px;
 }
+
+.column {
+	/* height: 100px;
+	overflow: hidden; */
+}
+
+#search {
+	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
+	display: inline-block;
+	position: relative;
+	height: 8rem;
+	width: 22rem;
+}
+.desc-text {
+	margin: 0;
+}
+
