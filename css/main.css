@@ -1,6 +1,16 @@
 /* Cascading Stylesheets */
 /* CSS selector */
 
+body {
+	font-family: 'Raleway', sans-serif;
+	background-color: #6b7a8f;
+	color: white;
+}
+
+.header {
+	
+}
+
 .resultImage {
 	margin-left: 25px;
 }
@@ -11,11 +21,16 @@
 }
 
 #search {
-	box-shadow: 5px 5px 15px gray, -5px -5px 15px gray;
+	box-shadow: 5px 5px 15px black, -5px -5px 15px black;
 	display: inline-block;
+	background-color: #f7882f;
 	position: relative;
 	height: 8rem;
 	width: 22rem;
+}
+
+.temp {
+	background-color: #f7882f;
 }
 .desc-text {
 	margin: 0;

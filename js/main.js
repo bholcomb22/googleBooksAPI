@@ -13,10 +13,10 @@ function search() {
 			for(let i = 0; i < data.items.length; i++) {
 				console.log(data);
 				let app = document.createElement('div');
-				app.className = "col-sm-12 col-md-8 ml-auto mr-auto column"
+				app.className = "temp col-sm-12 col-md-8 ml-auto p-5 mr-auto mb-5 column"
 				container.appendChild(app);
 				//title
-				let title = document.createElement('h5');
+				let title = document.createElement('h3');
 				title.innerHTML = data.items[i].volumeInfo.title;
 				app.appendChild(title);
 				// end title
@@ -40,7 +40,7 @@ function search() {
 				// end page count
 				// description
 				let desc = document.createElement('p');
-				desc.innerHTML = 'Description:' + ' ' + data.items[i].volumeInfo.description;
+				desc.innerHTML = 'Description:' + ' ' + data.items[i].searchInfo.textSnippet;
 				app.appendChild(desc);
 				//end description
 				
